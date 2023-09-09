@@ -97,6 +97,10 @@ html {
   background: #0782cf;
   border-radius: 0.55rem;
   border: none;
+  transition: 2s ease;
+}
+button:hover{
+  opacity: 80%;
 }
 .innerDiv .a{
   color: #0782cf;

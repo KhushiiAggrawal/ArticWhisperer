@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import Spinner from './Spinner'
 import { useState } from 'react';
 
@@ -28,7 +29,7 @@ const Home = () => {
                                 required
                             ></textarea>
                         </div>
-                        <a>Notify all ?</a>
+                        <Link to="/notifyAll" className='a'>Notify all ?</Link>
                         <button>
                             Send Notification
                         </button>

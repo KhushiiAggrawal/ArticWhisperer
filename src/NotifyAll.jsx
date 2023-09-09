@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const NotifyAll = () => {
     return (
@@ -16,7 +17,7 @@ const NotifyAll = () => {
                                 required
                             ></textarea>
                         </div>
-                        <a>Notify one ?</a>
+                        <Link to="/" className="a">Notify one ?</Link>
                         <button>
                             Send Notification
                         </button>

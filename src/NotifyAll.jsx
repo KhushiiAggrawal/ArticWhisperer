@@ -51,7 +51,7 @@ const NotifyAll = () => {
                     </div>
                 </div>
             </div>
-            {loading ? <Spinner /> : null}
+            {loading && <Spinner />}
         </>
     )
 }

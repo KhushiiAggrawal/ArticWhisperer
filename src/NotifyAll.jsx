@@ -6,8 +6,9 @@ const NotifyAll = () => {
     const [notiMsg, setNotiMsg] = useState("");
 
     const notifyAll = async(e)=>{
+        e.preventDefault()
         try { 
-            e.preventDefault()
+            
             setLoading(true); // if u implement loading thingie
             const { data } = await axios.post(`https://articmailserver.onrender.com/notifications/notifyall`, 
               { notiMsg }, 

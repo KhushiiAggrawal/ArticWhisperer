@@ -11,8 +11,9 @@ const Home = () => {
     const [notiMsg, setNotiMsg] = useState("");
 
     const notify = async(e)=>{
+        e.preventDefault()
         try { 
-            e.preventDefault()
+            
             setLoading(true); // if u implement loading thingie
             const { data } = await axios.post(`https://articmailserver.onrender.com/notifications/notify`, 
               { id , notiMsg }, 
@@ -65,7 +66,6 @@ const Home = () => {
                         </button>
                     </div>
                 </form>
-                
             </div>
             {loading ? <Spinner /> : null}
         </>

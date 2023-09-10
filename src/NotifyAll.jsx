@@ -2,6 +2,29 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 const NotifyAll = () => {
+    const [loading, setLoading] = useState(false);
+    const [notiMsg, setNotiMsg] = useState("");
+
+    const notifyAll = async()=>{
+        try { 
+            setLoading(true); // if u implement loading thingie
+            const { data } = await axios.post(`https://articmailserver.onrender.com/notifications/notify`, 
+              { notiMsg }, 
+              { 
+                headers: { 
+                  "Content-Type": "application/json", 
+                }, 
+                withCredentials: true, 
+              } 
+            ); 
+            console.log(data.message);// your response from server 
+          } catch (error) { 
+            if (error.response.data) { 
+              console.log(error.response.data.message); 
+            } 
+            setLoading(false); 
+          }
+    }
     return (
         <>
             <div className='wrapper'>
@@ -15,15 +38,18 @@ const NotifyAll = () => {
                                 type="text"
                                 placeholder="Type your message here...."
                                 required
+                                value={notiMsg}
+                                onChange={(e) => setNotiMsg(e.target.value)}
                             ></textarea>
                         </div>
                         <Link to="/" className="a">Notify one ?</Link>
-                        <button>
+                        <button onClick={notifyAll}>
                             Send Notification
                         </button>
                     </div>
                 </div>
             </div>
+            {loading ? <Spinner /> : null}
         </>
     )
 }

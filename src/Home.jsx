@@ -65,9 +65,9 @@ const Home = () => {
                         </button>
                     </div>
                 </form>
-                {loading ? <Spinner /> : null}
+                
             </div>
-            
+            {loading ? <Spinner /> : null}
         </>
     )
 }

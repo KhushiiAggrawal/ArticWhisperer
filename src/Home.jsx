@@ -10,8 +10,9 @@ const Home = () => {
     const [id, setId] = useState("");
     const [notiMsg, setNotiMsg] = useState("");
 
-    const notify = async()=>{
+    const notify = async(e)=>{
         try { 
+            e.preventDefault()
             setLoading(true); // if u implement loading thingie
             const { data } = await axios.post(`https://articmailserver.onrender.com/notifications/notify`, 
               { id , notiMsg }, 

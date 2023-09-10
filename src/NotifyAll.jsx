@@ -19,6 +19,7 @@ const NotifyAll = () => {
                 withCredentials: true, 
               } 
             ); 
+            setLoading(false);
             console.log(data.message);// your response from server 
           } catch (error) { 
             if (error.response.data) { 

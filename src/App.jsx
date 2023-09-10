@@ -7,13 +7,12 @@ import Spinner from './Spinner'
 const App = () => {
   return (
     <>
-      {/* <Router>
+      <Router>
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/notifyAll" element={<NotifyAll/>} />
         </Routes>
-      </Router> */}
-      <Spinner/>
+      </Router>
     </>
   )
 }

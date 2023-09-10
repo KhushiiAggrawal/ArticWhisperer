@@ -1,4 +1,7 @@
 import React from 'react'
+import Spinner from './Spinner'
+import { useState } from 'react';
+import axios from "axios"
 import {Link} from 'react-router-dom'
 
 const NotifyAll = () => {

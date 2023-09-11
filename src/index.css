@@ -90,6 +90,8 @@ html {
   border-radius: 0.5rem;
   overflow: hidden;
   outline: 1.5px solid rgb(231, 230, 230);
+  resize: none;
+  overflow-y: auto;
 }
 .innerDiv button{
   font-size: 1rem;
@@ -162,4 +164,25 @@ circle {
   .content{
     width: 100%;
   }
+}
+
+/* Custom Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: hsl(214, 97%, 59%);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:hsl(214, 97%, 59%);
 }

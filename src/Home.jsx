@@ -1,9 +1,8 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import {Link} from 'react-router-dom'
 import Spinner from './Spinner'
-import { useState } from 'react';
-import axios from "axios"
-
+import axios from "axios" 
+import toast from "react-hot-toast"
 
 const Home = () => {
     const [loading, setLoading] = useState(false);
@@ -13,8 +12,7 @@ const Home = () => {
     const notify = async(e)=>{
         e.preventDefault()
         try { 
-            
-            setLoading(true); // if u implement loading thingie
+            setLoading(true); 
             const { data } = await axios.post(`https://articmailserver.onrender.com/notifications/notify`, 
               { id , notiMsg }, 
               { 
@@ -25,12 +23,15 @@ const Home = () => {
               } 
             ); 
             setLoading(false);
-            console.log(data.message);// your response from server 
+            console.log(data.message);
+            toast.success("User Notified.")
+            setNotiMsg("");
           } catch (error) { 
             if (error.response.data) { 
               console.log(error.response.data.message); 
             } 
             setLoading(false); 
+            toast.error(error.response.data.message);
           }
     }
 

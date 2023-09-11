@@ -2,7 +2,8 @@ import React from 'react'
 import Spinner from './Spinner'
 import { useState } from 'react';
 import axios from "axios"
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import toast from 'react-hot-toast'
 
 const NotifyAll = () => {
     const [loading, setLoading] = useState(false);
@@ -24,11 +25,14 @@ const NotifyAll = () => {
             ); 
             setLoading(false);
             console.log(data.message);// your response from server 
+            toast.success("Users Notified");
+            setNotiMsg("");
           } catch (error) { 
             if (error.response.data) { 
               console.log(error.response.data.message); 
             } 
             setLoading(false); 
+            toast.error("Users not Notified")
           }
     }
     return (
